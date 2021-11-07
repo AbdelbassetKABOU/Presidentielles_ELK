@@ -1,7 +1,7 @@
-## Presidentielle ELK
+# Presidentielle ELK
 In this project we are concerned by the analysis of tweets about the _2022 French presidential election_. To do so we use ELK stack to retrieve, analyze and visualize tweets with the following hashtags : _#presidentielles2022, #presidentielle2022_. 
 
-### Components and pipeline architecture
+## Components and pipeline architecture
 
 For convenience, we’ll use Docker and Docker Compose. Our pipeline is composed of four (4) docker containers, as follows : 
 
@@ -72,13 +72,13 @@ Then we can add some visualization chart by clicking on “Create visualization�
 
 
 
-### What's next
+## What's next
 
 - _Geographic data_ : Collected tweets may include fields with _geo_data_ information. To be visualized in maps, we need to do some transformation by defining a new _mapping_ to our index. Unfortunately, the percentage of users enabling such information is so small, especially in our context.
 - _Sentiment Analysis_ : _Logstash_ and _Elaticsearch_ offer the possibility to include add-on plugins. In our case plugins related to _sentiment analysis_ may provide useful insights on users' perception regarding this presidential. Interested users are referred to the following articles for more details on how such tasks may be done in pipelines such ours, e.g. _logstash-filter-sentimentalizer_ [2], _openNLP_ [3], or those dedicated to french [4, 5, 6].
 - _Security_ : For a step forward, a lot can be done to improve security. In fact, ELK stack allows the integration of a multitude of technologies affecting _authentification_ (LDAP, SSO, Kerberos, SAML, etc), _autorisation_ (user access rights and privileges for Elastiksearch and Kibana), _encryption_ (SSL/TLS), etc.
 
-### Snapshots
+## Snapshots
 
 _Discover our dataset_ :
 ![Alt text](images/discover.png?raw=true "discover")
