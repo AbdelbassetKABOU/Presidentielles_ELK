@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  mongodb:
+    image : mongo
+    container_name: mymongodb
+    ports:
+    - 27017:27017
+    networks:
+    - elk      
+    restart: unless-stopped
+  elasticsearch:
+    image: elasticsearch:7.10.1
+    container_name: myelasticseatch
+    ports:
+    - 9200:9200
+    - 9300:9300
+    networks:
+    - elk      
+    environment:
+    - discovery.type=single-node      
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.2
+    container_name: mykibana
+    ports:
+    - 5601:5601
+    networks:
+    - elk      
+  logstash:
+    image: mylogstash
+    build:
+      context: logstash/
+    networks:
+      - elk
+    depends_on:
+    - elasticsearch      
+networks:
+  elk:
+    driver: bridge      
