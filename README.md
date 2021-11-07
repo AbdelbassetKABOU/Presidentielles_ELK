@@ -66,7 +66,7 @@ The final output is then :
 
 We can now access Kibana interface to get some insights. First we need to add the `presidentielle` index pattern by clicking on “Created index pattern”  (defined in the output). 
 
-![index pattern](https://clementbm.github.io/assets/2020-03-02/index-pattern.png)
+![Alt text](images/index_pattern?raw=true "index")
 
 Then we can add some visualization chart by clicking on “Create visualization”
 
@@ -80,12 +80,19 @@ Then we can add some visualization chart by clicking on “Create visualization�
 
 ### Snapshots
 
-
+_Discover our dataset_ :
 ![Alt text](images/discover.png?raw=true "discover")
+
+_Dashboard_ :
 ![Alt text](images/view1.png?raw=true "view1")
+
+
 ![Alt text](images/view2.png?raw=true "view2")
-![Alt text](images/view2.png?raw=true "view2")
+
+_Queries on our index_ :
 ![Alt text](images/search.png?raw=true "search")
+
+_Overview on the mapping of our data_ :
 ![Alt text](images/mapping.png?raw=true "mapping")
 
 
