@@ -12,7 +12,12 @@ For convenience, we’ll use Docker and Docker Compose. Our pipeline is composed
 
 An overall overview of the pipeline is depicted in the figure bellow. More details on each component is provided next.
 
-![Alt text](images/pipeline.png?raw=true "pipeline")
+
+<div align='center'>
+  <img src="images/pipeline.png" width=50% height=50%>
+</div>
+
+
 
 ### Logstash
 
@@ -30,14 +35,19 @@ input {
   }
 }
 ```
+
 The configuration file is located in  _pipeline_ directory, inside _logstash docker dir_.  The file is loaded automatically while building the docker image, using the following line (inside _Dockerfile_) : 
+
 ```
 ADD pipeline/ /usr/share/logstash/pipeline/
 ```
+
 Inside the same _Dockerfile_ file, note the following line :
+
 ```
 RUN bin/logstash-plugin install --version=3.1.5 logstash-output-mongodb
 ```
+
 In this line we install _Twitter logstash plugin_ (not installed by default in logstash). We explicitly precised the version 3.1.5, as the versions above seem to have some problems with the _MongoDB_ output.
 
 >_For those who don’t already have a twitter developer account, you may get one by following the twitter [documentation](https://developer.twitter.com/en/docs/basics/getting-started)  [[1]](https://clementbm.github.io/elasticsearch/kibana/logstash/elk/sentiment%20analysis/2020/03/02/elk-sentiment-analysis-twitter-coronavirus.html).
@@ -66,7 +76,9 @@ The final output is then :
 
 We can now access Kibana interface to get some insights. First we need to add the `presidentielle` index pattern by clicking on “Created index pattern”  (defined in the output). 
 
-![Alt text](images/index_pattern?raw=true "index")
+<div align='center'>
+  <img src="images/index_pattern.png" width=65% height=65%>
+</div>
 
 Then we can add some visualization chart by clicking on “Create visualization”
 
@@ -76,33 +88,47 @@ Then we can add some visualization chart by clicking on “Create visualization�
 
 - _Geographic data_ : Collected tweets may include fields with _geo_data_ information. To be visualized in maps, we need to do some transformation by defining a new _mapping_ to our index. Unfortunately, the percentage of users enabling such information is so small, especially in our context.
 - _Sentiment Analysis_ : _Logstash_ and _Elaticsearch_ offer the possibility to include add-on plugins. In our case plugins related to _sentiment analysis_ may provide useful insights on users' perception regarding this presidential. Interested users are referred to the following articles for more details on how such tasks may be done in pipelines such ours, e.g. _logstash-filter-sentimentalizer_ [2], _openNLP_ [3], or those dedicated to french [4, 5, 6].
-- _Security_ : For a step forward, a lot can be done to improve security. In fact, ELK stack allows the integration of a multitude of technologies affecting _authentification_ (LDAP, SSO, Kerberos, SAML, etc), _autorisation_ (user access rights and privileges for Elastiksearch and Kibana), _encryption_ (SSL/TLS), etc.
+- _Security_ : For a step forward, a lot can be done to improve security. In fact, ELK stack allows the integration of a multitude of technologies affecting _authentification_ (LDAP, SSO, Kerberos, SAML, etc), _autorisation_ (user access rights and privileges for Elastiksearch and Kibana), and _encryption_ (SSL/TLS), etc.
 
 ## Snapshots
 
-_Discover our dataset_ :
-![Alt text](images/discover.png?raw=true "discover")
+_1 - Discover our dataset_ :
 
-_Dashboard_ :
-![Alt text](images/view1.png?raw=true "view1")
+  <img src="images/discover.png" width=75% height=75%><br><br>
 
 
-![Alt text](images/view2.png?raw=true "view2")
+_2- Dashboard_ :
 
-_Queries on our index_ :
-![Alt text](images/search.png?raw=true "search")
+  <img src="images/view1.png" width=75% height=75%><br>
+  <img src="images/view2.png" width=75% height=75%><br><br>
 
-_Overview on the mapping of our data_ :
-![Alt text](images/mapping.png?raw=true "mapping")
+
+_3- Queries on our index_ :
+
+  <img src="images/search.png" width=75% height=75%><br><br>
+
+
+_4- Overview on the mapping of our data_ :
+
+  <img src="images/mapping.png" width=75% height=75%><br><br>
 
 
 ## References
 
 [1] [Sentiment analysis on twitter data with ELK](https://clementbm.github.io/elasticsearch/kibana/logstash/elk/sentiment%20analysis/2020/03/02/elk-sentiment-analysis-twitter-coronavirus.html)
+
 [2] [logstash-filter-sentimentalizer logstash pluging](https://github.com/tylerjl/logstash-filter-sentimentalizer)
+
+
 [3] [A DIY Twitter Tracking Tool Using the Elastic Stack](https://a2i2.deakin.edu.au/2020/11/05/a-diy-twitter-tracking-tool-using-the-elastic-stack/)
+
+
 [4] [Language analyzers - French analyze](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html#french-analyzer)
+
+
 [5] [Construire un bon analyzer français pour Elasticsearch](https://jolicode.com/blog/construire-un-bon-analyzer-francais-pour-elasticsearch#tldr)
+
+
 [6] [French-phonetic-analyser plugin (token filter)](https://github.com/hcapitaine/french-phonetic-analyser)
 
 
