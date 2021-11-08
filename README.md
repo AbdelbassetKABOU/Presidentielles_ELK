@@ -1,7 +1,7 @@
 # Presidentielle ELK
 In this project we are concerned by the analysis of tweets about the _2022 French presidential election_. To do so we use ELK stack to retrieve, analyze and visualize tweets with the following hashtags : _#presidentielles2022, #presidentielle2022_. 
 
-## Components and pipeline architecture
+## 1- Components and pipeline architecture
 
 For convenience, we’ll use Docker and Docker Compose. Our pipeline is composed of four (4) docker containers, as follows : 
 
@@ -72,7 +72,7 @@ The final output is then :
   }  
 ```
 
-## Visualisation using Kibana
+## 2- Visualisation using Kibana
 
 We can now access Kibana interface to get some insights. First we need to add the `presidentielle` index pattern by clicking on “Created index pattern”  (defined in the output). 
 
@@ -88,7 +88,7 @@ _Kibana_ offers as well another option making it possible to import an allinone 
   <img src="images/export.png" width=80% height=80%>
 
 
-## Snapshots
+## 3- Snapshots
 
 _1 - Discover our dataset_ :
 
@@ -112,17 +112,17 @@ _4- Overview on the mapping of our data_ :
 
 _5- _Overview on our database_ :
 
-  <img src="images/mongo.png" width=90% height=90%><br><br>
+  <img src="images/mongo.png" width=50% height=50%><br><br>
 
 
-## What's next
+## 4- What's next
 
 - _Geographic data_ : Collected tweets may include fields with _geo_data_ information. To be visualized in maps, we need to do some transformation by defining a new _mapping_ to our index. Unfortunately, the percentage of users enabling such information is so small, especially in our context.
 - _Sentiment Analysis_ : _Logstash_ and _Elaticsearch_ offer the possibility to include add-on plugins. In our case plugins related to _sentiment analysis_ may provide useful insights on users' perception regarding this presidential. Interested users are referred to the following articles for more details on how such tasks may be done in pipelines such ours, e.g. _logstash-filter-sentimentalizer_ [2], _openNLP_ [3], or those dedicated to french [4, 5, 6].
 - _Security_ : For a step forward, a lot can be done to improve security. In fact, ELK stack allows the integration of a multitude of technologies affecting _authentification_ (LDAP, SSO, Kerberos, SAML, etc), _autorisation_ (user access rights and privileges for Elastiksearch and Kibana), and _encryption_ (SSL/TLS), etc.
 
 
-## References
+## 5- References
 
 [1] [Sentiment analysis on twitter data with ELK](https://clementbm.github.io/elasticsearch/kibana/logstash/elk/sentiment%20analysis/2020/03/02/elk-sentiment-analysis-twitter-coronavirus.html)
 
