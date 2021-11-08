@@ -88,12 +88,6 @@ _Kibana_ offers as well another option making it possible to import an allinone 
   <img src="images/export.png" width=80% height=80%>
 
 
-## What's next
-
-- _Geographic data_ : Collected tweets may include fields with _geo_data_ information. To be visualized in maps, we need to do some transformation by defining a new _mapping_ to our index. Unfortunately, the percentage of users enabling such information is so small, especially in our context.
-- _Sentiment Analysis_ : _Logstash_ and _Elaticsearch_ offer the possibility to include add-on plugins. In our case plugins related to _sentiment analysis_ may provide useful insights on users' perception regarding this presidential. Interested users are referred to the following articles for more details on how such tasks may be done in pipelines such ours, e.g. _logstash-filter-sentimentalizer_ [2], _openNLP_ [3], or those dedicated to french [4, 5, 6].
-- _Security_ : For a step forward, a lot can be done to improve security. In fact, ELK stack allows the integration of a multitude of technologies affecting _authentification_ (LDAP, SSO, Kerberos, SAML, etc), _autorisation_ (user access rights and privileges for Elastiksearch and Kibana), and _encryption_ (SSL/TLS), etc.
-
 ## Snapshots
 
 _1 - Discover our dataset_ :
@@ -115,6 +109,17 @@ _3- Queries on our index_ :
 _4- Overview on the mapping of our data_ :
 
   <img src="images/mapping.png" width=75% height=75%><br><br>
+
+_5- _Overview on our database_ :
+
+  <img src="images/mongo.png" width=90% height=90%><br><br>
+
+
+## What's next
+
+- _Geographic data_ : Collected tweets may include fields with _geo_data_ information. To be visualized in maps, we need to do some transformation by defining a new _mapping_ to our index. Unfortunately, the percentage of users enabling such information is so small, especially in our context.
+- _Sentiment Analysis_ : _Logstash_ and _Elaticsearch_ offer the possibility to include add-on plugins. In our case plugins related to _sentiment analysis_ may provide useful insights on users' perception regarding this presidential. Interested users are referred to the following articles for more details on how such tasks may be done in pipelines such ours, e.g. _logstash-filter-sentimentalizer_ [2], _openNLP_ [3], or those dedicated to french [4, 5, 6].
+- _Security_ : For a step forward, a lot can be done to improve security. In fact, ELK stack allows the integration of a multitude of technologies affecting _authentification_ (LDAP, SSO, Kerberos, SAML, etc), _autorisation_ (user access rights and privileges for Elastiksearch and Kibana), and _encryption_ (SSL/TLS), etc.
 
 
 ## References
