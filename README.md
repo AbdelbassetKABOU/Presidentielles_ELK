@@ -82,6 +82,10 @@ We can now access Kibana interface to get some insights. First we need to add th
 
 Then we can add some visualization chart by clicking on “Create visualization”
 
+_Kibana_ offers as well another option making it possible to import an allinone preconfigured _Dashboard_. You can find our dashboard (exported in ndjson format) inside "kibana/dashboard" directory. The importation is done as depicted in the figure bellow (i.e. _"Management>Stack Management>Saved objects>Import"_). 
+
+
+  <img src="images/export.png" width=65% height=65%>
 
 
 ## What's next
